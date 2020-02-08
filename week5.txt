@@ -1,0 +1,21 @@
+Week 5 Functions & Program Structure
+
+1) Scope rules
+  - local variables : ตัวแปรที่ถูกประกาศไว้อยู่ใน block สามารถใช้งานได้เพียงขอบเขตที่ถูกกำหนดไว้
+  - global variables : ตัวแปรที่ถูกประกาศไว้นอกฟังก์ชัน สามารถเข้าถึงได้จากฟังก์ชันต่างๆ หากตัวแปรใน local ชื่อซ้ำกับใน global การกระทำของตัวแปรใน local จะไม่ส่งผลกระทบต่อ global
+  - storage classes : มี 4 ประเภทแบ่งออกเป็น 2 storage duration คือ
+    1. Automatic storage duration : ประกอบด้วย auto และ register ใช้กำหนดตัวแปรใน memory เมื่อโปรแกรมเข้าไปทำงานใน block และเมื่อทำงานเสร็จจะหายไป ( ตัวแปร local จะอยู่ในนี้เป็น auto )
+    2. Static storage duration : ประกอบด้วย extern และ static ใช้กำหนดตัวแปรใน memory เมื่อโปรแกรมเริ่มและสิ้นสุดการทำงานตัวแปรจะยังไม่หายไป ( ตัวแปร global จะอยู่ในนี้โดยกำหนดเป็น extern ) 
+    หากตัวแปร local ถูกประกาศเป็น static ตัวแปรจะถูกเข้าถึงภายในฟังก์ชัน แต่เมื่อทำงานเสร็จแล้วจะไม่หายไป
+  - dynamic storage duration : พื้นที่นี้ตัวแปรสามารถถูกจัดสรรพื้นที่ขึ้นมาได้ตามความต้องการของโปรแกรมขณะที่โปรแกรมกำลังทำงานอยู่
+2) Separate Compilation ( การคอมไพล์แยกส่วน )
+  $ gcc -c ชื่อไฟล์.c    //คำสั่งใช้สร้าง ชื่อไฟล์.o
+  $ gcc ชื่อไฟล์1.o ชื่อไฟล์2.o -o ชื่อไฟล์ใหม่.exe   //คำสั่งใช้ลิงก์ ชื่อไฟล์1.o กับ ชื่อไฟล์2.o เข้าด้วยกันและตั้งชื่อไฟล์ใหม่ได้ไฟล์.exe
+3) การใช้ make : ใช้สร้างกฎหรือ library ต่างๆ
+  - การสร้าง static library : 
+    $ gcc -c ชื่อไฟล์.c
+    ar cr libชื่อไฟล์.a ชื่อไฟล์.o
+  - การสร้าง dynamic library :
+    ( เฉพาะของ windows ) $ gcc -shared -o libfunc.dll -Wl,--out-implib,libfunc.dll.a *.o
+4) Random Number Generator 
+  rand() เป็นฟังก์ชันใช้ในการสุ่มเลขจำนวนเต็มที่อยู่ระหว่าง 0 ถึง RAND_MAX ( จะถูกกำหนดไว้ใน stdlib.h ) โดยปกติต้องเรียกใช้ srand() ก่อนหนึ่งครั้งเพื่อกำหนดค่า seed ให้กับ random number generator ก่อนที่เราจะเรียกใช้ rand()
