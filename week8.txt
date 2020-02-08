@@ -1,0 +1,19 @@
+Week 8 Linked List
+
+linked list : ใช้เก็บข้อมูลโดยที่ข้อมูลแต่ละตัวเชื่อมโยงต่อกันเป็นสาย
+structure : การกำหนดรูปแบบข้อมูลที่มีการรวมกันของข้อมูลหลายเรื่องที่สัมพันธ์กัน อาจจะเป็นข้อมูลประเภทต่างกัน การเข้าถึงสมาชิกแต่ละฟิลด์ทำได้โดยใช้ . ( dot operator )
+  สามารถใช้ -> ( structure pointer operator / arrow operator ) เพื่อเข้าถึงฟิลด์ได้ด้วย
+1) การใช้ typedef : ใช้กำหนดประเภทข้อมูลเพิ่มเติมได้ กรณีของ struct ก็เช่นกัน ex. typedef unsigned long int ulint ;
+2) Self-Referential Structures : โครงสร้างที่ออกแบบมาเพื่อจัดการ linked list โดยการใช้ struct และภายใน struct จะมีฟิลด์ที่เป็น pointer เพื่อใช้อ้างอิงกลับไปยัง struct นี้อีก
+  - ใช้ node ในการอ้างถึงหน่วยหรือเก็บข้อมูล 1 หน่วย
+  - struct node จะเก็บข้อมูล 2 ส่วน คือ
+      1. ฟิลด์ data : ใช้เก็บข้อมูล
+      2. ฟิลด์ next : ใช้เก็บตำแหน่งในหน่วยความจำของ node ถัดไปหรือเก็บ pointer
+3) การเข้าถึงข้อมูลแต่ละตัวใน linked list ( Traversal )
+4) การลบข้อมูลออกจาก linked list ( Deletion )
+5) การเพิ่มข้อมูลเข้าไปใน linked list ( Insertion ) : ทำได้โดยพิจารณาตำแหน่งใน list ที่ต้องการเพิ่ม node เข้าไป
+**เป็นแบบ Singly Linked List เป็นการพิจารณาแต่ละ node ที่อยู่ติดกันเชื่อมถึงกันผ่านลิงก์เดียว
+6) Doubly Linked List : แต่ละ node เชื่อมต่อกันด้วยลิงก์ 2 ลิงก์โดยลิงก์อันนึงเชื่อมกับ node ถัดไป อีกอันเชื่อมกับ node ก่อนหน้า
+7) Circular Linked List
+  - Singly Circular Linked List
+  - Doubly Circular Linked List
