@@ -1,0 +1,25 @@
+Week 7 Pointers & Dynamic Memory Allocation
+
+1) Pointers & Addresses
+  pointer : ใช้เก็บค่าตำแหน่งในหน่วยความจำที่ต้องการอ้างถึง เป็นค่าที่เป็นจำนวนเต็มบวก มีการบอกประเภทของข้อมูลที่เก็บไว้ด้วย
+2) Pointer Operators
+  & ( addresss operator ) : เป็น unary operator โดยที่ operand มักอยู่ในรูปตัวแปร ใช้หาค่าตำแหน่งในหน่วยความจำของ operand
+  * ( dereferencing operator / indirection operator ) : เป็น unary operator ถูกใช้ในการเข้าถึงข้อมูลที่ถูกอ้างอิงโดยค่าตำแหน่งในหน่วยความจำที่มีค่าเป็น operand
+3) Pointers & Arrays : ชื่อตัวแปรอาร์เรย์ใช้บอกค่าตำแหน่งในหน่วยความจำที่ใช้เก็บข้อมูลตัวแรกในอาร์เรย์ ( a = &a[0] และ *(a+i) = a[i] )
+4) นิพจน์ใน pointer และการใช้ตัวดำเนินการคณิตศาสตร์กับ pointer : ตัวแปร pointer สามารถเป็น operand ให้กับนิพจน์แต่ไม่ใช่ทุกตัว คือ
+  - คณิตศาสตร์ : เป็นการกระทำกับขนาดของประเภทข้อมูลนั้นๆ
+  - การกำหนดค่า
+  - การเปรียบเทียบ
+5) การประกาศตัวแปร pointer ที่จะใช้อ้างไปยังฟังก์ชัน : ex. double (*pfunc)(int, float)
+6) การจองหน่วยความจำ : ตัวแปรที่มีคลาสเป็น auto จะถูกเก็บอยู่ในหน่วยความจำส่วนของ stack segment และตัวแปร global จะถูกเก็บในส่วน data segment
+  malloc() : จะเก็บอยู่ในหน่วยความจำในส่วนของ heap segment ใช้ในการจองพื้นที่ ประเภทของการส่งข้อมูลกลับเป็น (void *) หากต้องการส่งประเภทอื่นต้อง explicit cast และมีการส่งกลับเป็น base address 
+  **หากที่ไม่พอให้จองจะส่งค่า NULL กลับมา
+  ex. data = (int *)malloc(1000 * sizeof(int)) ;
+  free() : ใช้คืนพื้นที่ให้กับระบบ พารามิเตอร์จะเป็นตำแหน่งในหน่วยความจำ
+  - ตระกูลฟังก์ชันการจองพื้นที่
+      #include <stdlib.h>
+      void *malloc(size_t n) ;
+      void *calloc(size_t n, size_t size) ;
+      void *realloc(void *ptr, size_t size) ;
+      void free(void *ptr) ;
+7) Segmentation fault ( core dumped ) : การเข้าถึงหน่วยความจำที่เราไม่ได้จองไว้
