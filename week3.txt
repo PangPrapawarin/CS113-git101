@@ -1,0 +1,35 @@
+Week 3 Control Flow
+
+1) Statements & Blocks
+  block ใช้ในการรวม statement หลายอันเข้าด้วยกันและแต่ละ statement จะมี ; ปิดท้ายเสมอ ( null statement จะไม่มีส่วนของ expression มีแค่ ; )
+2) If-Else
+  if ( expression )
+      statement1
+  else
+      statement2
+3) Else-If
+  if ( expression1 )
+      statement1
+  else if ( expression2 )
+      statement2
+  else
+      statement3
+4) Switch : ใช้ในการตรวจสอบเงื่อนไขในลักษณะ expression นั้น match กับค่าคงที่อันไหนจนกว่าจะเจอ break
+  switch ( expression ) {
+      case const-expr :
+          statements
+      case const-expr :
+          statements
+      default :  // เป็น optional จะมีหรือไม่มีก็ได้ ถ้ามีจะทำงานก็ต่อเมื่อ expression ไม่ match กับ case ไหนเลย
+          statements
+5) Loops-While & For
+  while ( expression )
+      statement
+  for ( expr1 ;  expr2 ; expr3 )  // expr1, expr2 & expr3 สามารถละได้แต่ต้องมี ; ไว้
+      statement
+6) Loops-Do-While
+  do {
+      statement
+  } while ( expression ) ;  // statement จะถูกทำงานแล้ว expression ค่อยทำงาน
+7) Break & Continue
+  break ทำให้โปรแกรมหลุดออกจากลูป ส่วน continue จะบังคับลูปให้เกิดการวนซ้ำขึ้นมาใหม่
