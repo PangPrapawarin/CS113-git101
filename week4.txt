@@ -1,0 +1,20 @@
+Week 4 Functions and Program Structure
+
+1) Function Definition : เป็นการนิยามฟังก์ชัน
+  return-value-type function-name ( parameter-list )
+  {
+      declarations
+      statement
+  }
+2) Function Prototypes : เหมือน function header ใช้บอกว่ามีฟังก์ชันที่ต้องเรียกใช้ก่อนการนิยามฟังก์ชันกับ compiler
+  return-value-type function-name ( parameter-list ) ;
+3) Standard Library Functions & Math Library Functions
+  C Library functions : ถูกเก็บอยู่ใน /usr/lib/libc.a
+  Math Library functions : ถูกเก็บอยู่ใน /usr/lib/libm.a ซึ่งเวลาใช้ตอน compile ให้เติม -lm ด้วยและค่ามุมที่อยู่ในฟังก์ชันนี้จะเป็นเรเดียน
+4) Return Values : ถ้าใช้ void จะไม่มีการส่งค่ากลับแต่ถ้ามีการส่งค่ากลับจะใช้ return
+5) Recursion ( การเรียกซ้ำ ) : ฟังก์ชันสามารถเรียกใช้ตัวเองได้ โดยจะมีการสำเนาข้อมูลขึ้นมาไม่เกี่ยวกับครั้งก่อนหน้า ถ้าเรียกซ้ำเยอะๆ อาจจะทำให้เกิดการ overflow
+6) Function Call & Stack Frames : เมื่อตัวแปร local ทำงานจะสร้าง stack frame เพื่อเก็บข้อมูลของ parameter โดย 1 stack frame ต่อการใช้งาน 1 ครั้งและ return address จะถูกทำงานหลังจากสิ้นสุดการทำงาน ส่วน stack frame ก็จะถูกทำลาย
+  ส่วนประกอบของ stack frame ( activation record )
+    - return address
+    - ตัวแปร locals
+ 
